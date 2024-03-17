@@ -13,7 +13,7 @@ public class Etudiant {
 
     private String nom,matricule;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "etudiants")
     private Collection<Seance> seances;
 
     @Override

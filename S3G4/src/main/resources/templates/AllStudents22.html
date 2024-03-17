@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  >
+    <head>
+        <meta charset="UTF-8">
+        <title>Liste Des Etudiants</title>
+        <link href="../css/AllStudent_Style.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="table-wrapper">
+            <table class="fl-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Registration</th>
+                        <th>Full Name</th>
+                        <th>Birthday</th>
+                        <th>Last Connection</th>
+                        <th onClick="onClickplus()" class="border_right_none">
+                            <i class="button_plus"> </i>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="s:${ListStudents}">
+                        <td th:text="${s.id}"></td>
+                        <td th:text="${s.registraionNumber}"></td>
+                        <td th:text="${s.fullname}"></td>
+                        <td th:text="${s.birth}"></td>
+                        <td th:text="${s.lastConnection}"></td>
+                        <td onClick="onClickminus()" class="border_right_none">
+                            <i class="button_minus"> </i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p>Clicks: <a id="clicks">0</a></p>
+
+        <script src="../js/AllStudent_script.js"></script>
+
+    </body>
+</html>
