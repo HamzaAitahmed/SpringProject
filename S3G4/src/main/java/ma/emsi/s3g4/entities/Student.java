@@ -1,6 +1,7 @@
 package ma.emsi.s3g4.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,7 +20,8 @@ public class Student {
     private Integer id;
 
     @Column (name = "REGISTRATION_N", unique = true)
-    private String registraionNumber;
+    @NotEmpty
+    private String registrationNumber;
 
     @Column (name = "NAME", length=30 , nullable = false)
     private String fullname;

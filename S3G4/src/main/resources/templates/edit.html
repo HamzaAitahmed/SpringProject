@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  >
+<head>
+    <meta charset="UTF-8">
+    <title>Liste Des Etudiants</title>
+    <!--link rel="Stylesheet" href="/webjars/bootstrap/5.2.3/css/bootstrap-grid-jsf.css"-->
+</head>
+<body>
+
+<table>
+    <thead>
+    <tr>
+        <td>ID</td>
+        <td>Registration</td>
+        <td>Full Name</td>
+        <td>Birthday</td>
+        <td>Last Connection</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="s:${PageStudent}">
+        <td th:text="${s.id}"></td>
+        <td th:text="${s.getRegistrationNumber}"></td>
+        <td th:text="${s.fullname}"></td>
+        <td th:text="${s.birth}"></td>
+        <td th:text="${s.lastConnection}"></td>
+        <td>
+            <a class="btn btn-danger" th:href="@{ delete(page=${v} , size=${size}, search=${seachName}, id = ${s.id} ) }"> Delete </a>
+        </td>
+
+        <td>
+            <a class="btn btn-danger" th:href="@{ edit(page=${v} , size=${size}, search=${seachName}, id = ${s.id} ) }"> Edit </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+<div class="container">
+    <ul class="nav nav-pills">
+        <li th:each="v,position:${pages}" class="nav-item me-2"  >
+            <a  th:text="${v+1}"
+                th:class=" ${v==currentPage} ? 'btn red btn-primary':  'btn blue btn-outline-primary' "
+                th:href="@{index(page=${v} , size=${size}, search=${seachName} )}">
+
+            </a>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

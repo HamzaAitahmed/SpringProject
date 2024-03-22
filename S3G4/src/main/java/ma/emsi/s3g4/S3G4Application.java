@@ -37,12 +37,12 @@ public class S3G4Application implements CommandLineRunner {
         int page=0;
         int size=2;
 
-        Page<Student> PStudent = studentRepository.findAll(PageRequest.of(page,size));
-        PStudent.getContent().forEach(System.out::println);
+        //Page<Student> PStudent = studentRepository.findAll(PageRequest.of(page,size));
+        //PStudent.getContent().forEach(System.out::println);
         System.out.println("\n###############################\n");
-        List<Student> s = studentRepository.findByFullName("hamza4");
+        //List<Student> s = studentRepository.findByFullName("hamza4");
 
-        s.forEach(System.out::println);
+        //s.forEach(System.out::println);
 
     }
 }
